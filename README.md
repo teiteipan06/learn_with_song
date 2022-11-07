@@ -1,24 +1,65 @@
-# README
+#テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| first_name         | string | null: false               |
+| lase_name          | string | null: false               |
+| nationality        | string | null: false               |
+| birthday           | date   | null: false               |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :songs
+- has_many :likes
+- has_many :comments
+----------------------------
 
-* Configuration
+## songs テーブル
 
-* Database creation
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| title           | string     | null: false                    |
+| video           | text       | null: false                    |
+| singer          | string     | null: false                    |
+| category        | string     | null: false                    |
+| lyric_other     | text       | null: false                    |
+| lyric_japanese  | text       | null: false                    |
+| user            | references | null: false, foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- has_one :likes
+- has_many :comments
+- belongs_to :user
+----------------------------
 
-* Services (job queues, cache servers, search engines, etc.)
+## comments テーブル
 
-* Deployment instructions
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| content   | text       |                                |
+| song      | references | null: false, foreign_key: true |
+| user      | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :song
+- belongs_to :user
+----------------------------
+
+## likes テーブル
+
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| song      | references | null: false, foreign_key: true |
+| user      | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :song
+- belongs_to :user
