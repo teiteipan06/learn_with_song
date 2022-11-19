@@ -24,7 +24,7 @@
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | title           | string     | null: false                    |
-| video           | text       | null: false                    |
+| video           | string     | null: false                    |
 | singer          | string     | null: false                    |
 | category        | string     | null: false                    |
 | lyric_other     | text       | null: false                    |
