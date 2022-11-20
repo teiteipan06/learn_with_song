@@ -27,8 +27,8 @@
 | video           | string     | null: false                    |
 | singer          | string     | null: false                    |
 | category        | string     | null: false                    |
-| lyric_other     | text       | null: false                    |
-| lyric_japanese  | text       | null: false                    |
+| lyrics_origin   | text       | null: false                    |
+| lyrics_japanese | text       | null: false                    |
 | user            | references | null: false, foreign_key: true |
 
 ### Association
