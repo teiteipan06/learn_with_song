@@ -4,10 +4,10 @@
 
   </header>
   <div class="add-songs-main">
-    <h2 class="add-songs-title">商品の情報を入力</h2>
-    <%#= form_with model: @song, url: songs_path, local: true do |f| %>
+    <h2 class="add-songs-title">曲の情報を入力</h2>
+    <%= form_with model: @song, url: songs_path, local: true do |f| %>
 
-    <%#= render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
 
     <%# 曲の動画 %>
     <div class="video-upload">
@@ -19,10 +19,47 @@
         <p>
           動画のURLを入力
         </p>
-        <%# f.text_area :video, id:"song-video" %>
+        <% f.text_area :video, id:"song-video" %>
       </div>
     </div>
-  
-  </div>
+    <%# /曲の動画 %>
+    <%# 曲のタイトルとシンガーと歌詞 %>
+    <div class="new-songs">
+      <div class="weight-bold-text">
+        曲のタイトル
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"songs-text", id:"song-title", placeholder:"曲のタイトル（必須 40文字まで)", maxlength:"40" %>
+      <div class="songs-singer">
+        <div class="weight-bold-text">
+          曲のシンガー
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :singer, class:"songs-text", id:"song-singer", placeholder:"曲のシンガー（必須)" %>
+      </div>
+      <div class="songs-lyrics">
+        <div class="weight-bold-text">
+          曲の歌詞（原語）
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :lyrics_origin, class:"songs-text", id:"song-lyrics", placeholder:"曲の歌詞（原語）（必須)" ,rows:"20" %>
+      </div>
+      <div class="songs-lyrics">
+        <div class="weight-bold-text">
+          曲の歌詞（日本語）
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :lyrics_japanese, class:"songs-text", id:"song-lyrics", placeholder:"曲の歌詞（日本語）（必須)" ,rows:"20" %>
+      </div>
+    </div>
+    <%# /曲のタイトルとシンガーと歌詞 %>
 
+    <div class="add-btn-contents">
+      <%= f.submit "新曲の追加する" ,class:"add-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+  </div>
+  <% end %>
 </div>
+
+<%= render "shared/footer" %>
