@@ -101,14 +101,9 @@ LEARN WITH SONG
 # ローカルでの動作方法
 以下のコマンドを順に実行。
 
-% git clone https://github.com/teiteipan06/learn_with_song.git
-
-% cd learn_with_song
-
-% bundle install
-
-% rails db:create
-
-% rails db:migrate
-
+% git clone https://github.com/teiteipan06/learn_with_song.git  
+% cd learn_with_song  
+% bundle install  
+% rails db:create  
+% rails db:migrate    
 % yarn install
