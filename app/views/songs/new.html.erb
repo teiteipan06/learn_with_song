@@ -15,11 +15,11 @@
         曲の動画
         <span class="indispensable">必須</span>
       </div>
+      <%= f.text_area :video, class:"songs-text", id:"song-video", placeholder:"動画の埋め込むURLを入力"%>
+      <font color="red">※動画の埋め込むURLの習得方法は下記をご参照ください</font>
       <div class="url-upload">
-        <p>
-          動画のURLを入力
-        </p>
-        <% f.text_area :video, id:"song-video" %>
+        <%= link_to image_tag("説明1.png", class:"video-icon") %>
+        <%= link_to image_tag("説明2.png", class:"video-icon") %>
       </div>
     </div>
     <%# /曲の動画 %>
