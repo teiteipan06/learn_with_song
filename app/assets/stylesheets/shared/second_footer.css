@@ -1,0 +1,15 @@
+.second-footer {
+  width: 100%;
+  min-width: 800px;
+  height: 150px;
+  background-color: #f2c3c3;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.second-footer-logo {
+  width: 111px;
+  height: 117px;
+  margin: 0 auto;
+}
