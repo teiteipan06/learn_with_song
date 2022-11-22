@@ -1,7 +1,35 @@
 <%= render "shared/header" %>
 
 <div class='main'>
-hello
+  <div class='item-contents'>
+    <h2 class='title'>ピックアップカテゴリー</h2>
+    <div class="subtitle" >
+      新規投稿商品
+    </div>
+    <ul class='item-lists'>
+      
+      <% @songs.each do |song| %>
+      <li class='list'>
+        <%= link_to song_path(song.id) do %>
+        <div class='item-img-content'>
+          <%#= image_tag song.image, class: "song-img" %>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= song.title %>
+          </h3>
+          <div class='item-price'>
+            <div class='star-btn'>
+              <%#= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 

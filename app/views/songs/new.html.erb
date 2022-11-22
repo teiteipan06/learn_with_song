@@ -18,18 +18,27 @@
       <%= f.text_area :video, class:"songs-text", id:"song-video", placeholder:"動画の埋め込むURLを入力"%>
       <font color="red">※動画の埋め込むURLの習得方法は下記をご参照ください</font>
       <div class="url-upload">
-        <%= link_to image_tag("説明1.png", class:"video-icon") %>
-        <%= link_to image_tag("説明2.png", class:"video-icon") %>
+        <p>↓↓↓　　　Step 1　【共有】を押す　　　↓↓↓</p>
+        <%= image_tag("説明1.png", class:"video-icon") %>
+        <p>↓↓↓　　　Step 2　【埋め込む】を押す　　　↓↓↓</p>
+        <%= image_tag("説明2.png", class:"video-icon") %>
+        <p>↓↓↓　　　Step 3　【コピー】を押して、ペーストする　　　↓↓↓</p>
+        <%= image_tag("説明3.png", class:"video-icon") %>
       </div>
     </div>
     <%# /曲の動画 %>
-    <%# 曲のタイトルとシンガーと歌詞 %>
+    <%# 曲のタイトル、カテゴリー、シンガーと歌詞 %>
     <div class="new-songs">
       <div class="weight-bold-text">
         曲のタイトル
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :title, class:"songs-text", id:"song-title", placeholder:"曲のタイトル（必須 40文字まで)", maxlength:"40" %>
+      <div class="weight-bold-text">
+        曲のカテゴリー
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :category, class:"songs-text", id:"song-category", placeholder:"曲のカテゴリー" %>
       <div class="songs-singer">
         <div class="weight-bold-text">
           曲のシンガー
@@ -52,7 +61,7 @@
         <%= f.text_area :lyrics_japanese, class:"songs-text", id:"song-lyrics", placeholder:"曲の歌詞（日本語）（必須)" ,rows:"20" %>
       </div>
     </div>
-    <%# /曲のタイトルとシンガーと歌詞 %>
+    <%# /曲のタイトル、カテゴリー、シンガーと歌詞 %>
 
     <div class="add-btn-contents">
       <%= f.submit "新曲の追加する" ,class:"add-btn" %>
