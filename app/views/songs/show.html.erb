@@ -1,3 +1,60 @@
 <%= render "shared/header" %>
 
-hihi
+<div class="song-show">
+  <div class="item-box">
+    <h2 class="name">
+      <%= @song.title %>
+      - <%= @song.singer %>
+    </h2>
+    <div class="item-img-content">
+      <% iframe = content_tag(
+                :iframe,
+                '', # empty body
+                width: 560,
+                height: 315,
+                src: "https://www.youtube.com/embed/#{@song.video}",
+                frameborder: 0,
+                allowfullscreen: true
+                ) %>
+        <%= content_tag(:div, iframe, class: 'youtube-container') %>
+    </div>
+
+    <% if user_signed_in? && current_user.id == @song.user_id %>
+
+    <%= link_to "編集", edit_song_path, method: :get, class: "item-red-btn" %>
+    <p class="or-text">or</p>
+    <%= link_to "削除", song_path(@song.id), method: :delete, class:"item-destroy" %>
+    <% end %>
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">出品者</th>
+          <td class="detail-value"><%= @song.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">カテゴリー</th>
+          <td class="detail-value"><%= @song.category %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">歌詞（原語）</th>
+          <td class="detail-value"><%= @song.lyrics_origin %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">歌詞（日本語）</th>
+          <td class="detail-value"><%= @song.lyrics_japanese %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="option">
+      <div class="favorite-btn">
+        <%#= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <span>お気に入り 0</span>
+      </div>
+    </div>
+  </div>
+
+  <a href="#" class="another-item"><%= @song.category %>をもっと見る</a>
+</div>
+
+<%= render "shared/footer" %>

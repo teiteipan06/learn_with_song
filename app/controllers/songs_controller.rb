@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+  before_action :set_song, only: [:show, :edit, :update, :destroy]
   
   def index
     @songs = Song.order("created_at DESC")
@@ -18,7 +19,6 @@ class SongsController < ApplicationController
   end
 
   def show
-    @song = Song.find(params[:id])
   end
   
 
@@ -27,5 +27,8 @@ class SongsController < ApplicationController
     params.require(:song).permit(:title, :video, :singer, :category, :lyrics_origin, :lyrics_japanese).merge(user_id: current_user.id)
   end
 
+  def set_song
+    @song = Song.find(params[:id])
+  end
 
 end
