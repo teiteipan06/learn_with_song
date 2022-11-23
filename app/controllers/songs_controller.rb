@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
   
   def index
-    @songs = Song.all
+    @songs = Song.order("created_at DESC")
   end
 
   def new
@@ -17,6 +17,9 @@ class SongsController < ApplicationController
     end
   end
 
+  def show
+    @song = Song.find(params[:id])
+  end
   
 
   private
@@ -24,5 +27,5 @@ class SongsController < ApplicationController
     params.require(:song).permit(:title, :video, :singer, :category, :lyrics_origin, :lyrics_japanese).merge(user_id: current_user.id)
   end
 
-  
+
 end

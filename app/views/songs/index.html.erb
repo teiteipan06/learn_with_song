@@ -4,12 +4,12 @@
   <div class='list-contents'>
     <h2 class='title'>曲のリスト</h2>
     <div class="subtitle" >
-      新規投稿曲
+      新規投稿した曲
     </div>
     
     <div class='item-lists'>
       <table class='list'>
-        <thead class="thead-dark">
+        <thead>
           <tr>
             <th>サムネイル</th>
             <th>タイトル</th>
@@ -18,13 +18,13 @@
           </tr>
         </thead>
         <tbody>
-        <% @songs.each do |song| %>
+        <% @songs.each do |song| %>  
           <tr>
             <td>
-              <%= image_tag("http://img.youtube.com/vi/#{song.video}/default.jpg")%>
+              <%= link_to image_tag("http://img.youtube.com/vi/#{song.video}/default.jpg"),song_path(song.id) %>
             </td>
             <td>
-              <%= song.title %>
+              <%= link_to song.title, song_path(song.id) %>
             </td>
             <td>
               <%= song.singer %>
@@ -33,6 +33,7 @@
               <%= song.category %>
             </td>
           </tr>
+          <%# end %>
         <% end %>
         </tbody>
       </table>
