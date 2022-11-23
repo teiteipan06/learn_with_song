@@ -17,9 +17,12 @@ class SongsController < ApplicationController
     end
   end
 
+  
+
   private
   def song_params
     params.require(:song).permit(:title, :video, :singer, :category, :lyrics_origin, :lyrics_japanese).merge(user_id: current_user.id)
   end
 
+  
 end

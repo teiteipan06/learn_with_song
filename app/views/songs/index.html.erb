@@ -1,34 +1,42 @@
 <%= render "shared/header" %>
 
 <div class='main'>
-  <div class='item-contents'>
-    <h2 class='title'>ピックアップカテゴリー</h2>
+  <div class='list-contents'>
+    <h2 class='title'>曲のリスト</h2>
     <div class="subtitle" >
-      新規投稿商品
+      新規投稿曲
     </div>
-    <ul class='item-lists'>
-      
-      <% @songs.each do |song| %>
-      <li class='list'>
-        <%= link_to song_path(song.id) do %>
-        <div class='item-img-content'>
-          <%#= image_tag song.image, class: "song-img" %>
-        </div>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            <%= song.title %>
-          </h3>
-          <div class='item-price'>
-            <div class='star-btn'>
-              <%#= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
-            </div>
-          </div>
-        </div>
+    
+    <div class='item-lists'>
+      <table class='list'>
+        <thead class="thead-dark">
+          <tr>
+            <th>サムネイル</th>
+            <th>タイトル</th>
+            <th>シンガー</th>
+            <th>カテゴリー</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @songs.each do |song| %>
+          <tr>
+            <td>
+              <%= image_tag("http://img.youtube.com/vi/#{song.video}/default.jpg")%>
+            </td>
+            <td>
+              <%= song.title %>
+            </td>
+            <td>
+              <%= song.singer %>
+            </td>
+            <td>
+              <%= song.category %>
+            </td>
+          </tr>
         <% end %>
-      </li>
-      <% end %>
-    </ul>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
