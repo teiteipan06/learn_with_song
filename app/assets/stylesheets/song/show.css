@@ -122,20 +122,22 @@
 
 /* /商品の概要 */
 
-.comment
-
-
 .comment-box {
   width: 40vw;
   height: 200px;
-  background-color: rgb(185, 76, 127);
+  background-color: rgb(242, 206, 224);
   margin: 5vh 0;
+  padding: 10px;
+}
+
+.comment-box-head {
   text-align: center;
+  font-size: 20px;
 }
 
 .comment-text {
   width: 40vw;
-  height: 30vh;
+  height: 150px;
   padding: 10px;
   border: solid 2px #d18d8d;
   resize: none;

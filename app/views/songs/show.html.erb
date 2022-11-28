@@ -54,7 +54,16 @@
     </div>
   </div>
 
-  <div class="comment-box">
+  <div class="comments">
+    <div class="comment-box">
+      <h4 class="comment-box-head">＜コメント一覧＞</h4>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+          <%= comment.text %>
+        </p>
+      <% end %>
+    </div>
     <% if user_signed_in? %>
       <%= form_with(model: [@song, @comment], local: true) do |form| %>
         <%= form.text_area :text, placeholder: "コメントする", rows: "2", class:"comment-text" %>
@@ -63,8 +72,6 @@
         <span>コメントする<span>
         </button>
       <% end %>
-    <% else %>
-      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
   </div>
 
