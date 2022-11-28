@@ -13,5 +13,5 @@ class User < ApplicationRecord
   validates :birthday, presence: true
 
   has_many :songs
-  has_maby :comments
+  has_many :comments
 end
