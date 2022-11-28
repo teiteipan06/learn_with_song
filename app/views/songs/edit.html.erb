@@ -1,0 +1,73 @@
+<div class="add-songs-contents">
+  <header class="add-songs-header">
+    <%= link_to image_tag('pan.png' , size: '100x100'), "/" %>
+  </header>
+  <div class="add-songs-main">
+    <h2 class="add-songs-title">曲の情報を入力</h2>
+    <%= form_with model: @song, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <%# 曲の動画 %>
+    <div class="video-upload">
+      <div class="weight-bold-text">
+        曲の動画
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :video, class:"songs-text", id:"song-video", placeholder:"動画の埋め込むURLを入力"%>
+      <font color="red">※動画の埋め込むURLの習得方法は下記をご参照ください</font>
+      <div class="url-upload">
+        <p>↓↓↓　　　Step 1　【共有】を押す　　　↓↓↓</p>
+        <%= image_tag("説明1.png", class:"video-icon") %>
+        <p>↓↓↓　　　Step 2　【埋め込む】を押す　　　↓↓↓</p>
+        <%= image_tag("説明2.png", class:"video-icon") %>
+        <p>↓↓↓　　　Step 3　【コピー】を押して、ペーストする　　　↓↓↓</p>
+        <%= image_tag("説明3.png", class:"video-icon") %>
+      </div>
+    </div>
+    <%# /曲の動画 %>
+    <%# 曲のタイトル、カテゴリー、シンガーと歌詞 %>
+    <div class="new-songs">
+      <div class="weight-bold-text">
+        曲のタイトル
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"songs-text", id:"song-title", placeholder:"曲のタイトル（必須 40文字まで)", maxlength:"40" %>
+      <div class="weight-bold-text">
+        曲のカテゴリー
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :category, class:"songs-text", id:"song-category", placeholder:"曲のカテゴリー" %>
+      <div class="songs-singer">
+        <div class="weight-bold-text">
+          曲のシンガー
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :singer, class:"songs-text", id:"song-singer", placeholder:"曲のシンガー（必須)" %>
+      </div>
+      <div class="songs-lyrics">
+        <div class="weight-bold-text">
+          曲の歌詞（原語）
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :lyrics_origin, class:"songs-text", id:"song-lyrics", placeholder:"曲の歌詞（原語）（必須)" ,rows:"20" %>
+      </div>
+      <div class="songs-lyrics">
+        <div class="weight-bold-text">
+          曲の歌詞（日本語）
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :lyrics_japanese, class:"songs-text", id:"song-lyrics", placeholder:"曲の歌詞（日本語）（必須)" ,rows:"20" %>
+      </div>
+    </div>
+    <%# /曲のタイトル、カテゴリー、シンガーと歌詞 %>
+
+    <div class="add-btn-contents">
+      <%= f.submit "変更する" ,class:"add-btn" %>
+      <%=link_to 'もどる', song_path(@song.id), class:"back-btn" %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<%= render "shared/footer" %>
