@@ -20,6 +20,17 @@ class SongsController < ApplicationController
 
   def show
   end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+    @song.destroy
+    redirect_to root_path
+  end
   
 
   private
