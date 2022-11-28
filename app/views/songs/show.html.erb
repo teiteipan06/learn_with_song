@@ -1,12 +1,12 @@
 <%= render "shared/header" %>
 
 <div class="song-show">
-  <div class="item-box">
+  <div class="song-box">
     <h2 class="name">
       <%= @song.title %>
       - <%= @song.singer %>
     </h2>
-    <div class="item-img-content">
+    <div class="song-img-content">
       <% iframe = content_tag(
                 :iframe,
                 '', # empty body
@@ -20,41 +20,55 @@
     </div>
 
     <% if user_signed_in? && current_user.id == @song.user_id %>
-
-    <%= link_to "編集", edit_song_path, method: :get, class: "item-red-btn" %>
-    <p class="or-text">or</p>
-    <%= link_to "削除", song_path(@song.id), method: :delete, class:"item-destroy" %>
+    <div class="song-option" >
+      <%= link_to "編集", edit_song_path, method: :get, class: "song-red-btn" %>
+      <%= link_to "削除", song_path(@song.id), method: :delete, class:"song-destroy" %>
+    </div> 
     <% end %>
 
     <table class="detail-table">
       <tbody>
         <tr>
-          <th class="detail-item">出品者</th>
+          <th class="detail-song">動画提供者</th>
           <td class="detail-value"><%= @song.user.nickname %></td>
         </tr>
         <tr>
-          <th class="detail-item">カテゴリー</th>
+          <th class="detail-song">カテゴリー</th>
           <td class="detail-value"><%= @song.category %></td>
         </tr>
         <tr>
-          <th class="detail-item">歌詞（原語）</th>
+          <th class="detail-song">歌詞（原語）</th>
           <td class="detail-value"><%= @song.lyrics_origin %></td>
         </tr>
         <tr>
-          <th class="detail-item">歌詞（日本語）</th>
+          <th class="detail-song">歌詞（日本語）</th>
           <td class="detail-value"><%= @song.lyrics_japanese %></td>
         </tr>
       </tbody>
     </table>
     <div class="option">
       <div class="favorite-btn">
-        <%#= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <%= image_tag "pan.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
         <span>お気に入り 0</span>
       </div>
     </div>
   </div>
 
-  <a href="#" class="another-item"><%= @song.category %>をもっと見る</a>
+  <div class="comment-box">
+    <form>
+      <textarea class="comment-text"></textarea>
+      <p class="comment-warn">
+        相手のことを考え丁寧なコメントを心がけましょう。
+        <br>
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      </p>
+      <button type="submit" class="comment-btn">
+        <span>コメントする<span>
+      </button>
+    </form>
+  </div>
+
+  <a href="#" class="another-song"><%= @song.category %>をもっと見る</a>
 </div>
 
 <%= render "shared/footer" %>

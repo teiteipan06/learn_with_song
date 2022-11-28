@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.item-box {
+.song-box {
   background-color: #FFF;
   width: 70vw;
   min-width: 1200px;
@@ -18,13 +18,13 @@
   align-items: center;
 }
 
-.item-box>.name {
+.song-box>.name {
   text-align: center;
   font-weight: bold;
   font-size: 25px;
 }
 
-.item-box-img {
+.song-box-img {
   height: 50vh;
   width: 60vw;
   min-height: 500px;
@@ -32,50 +32,31 @@
   object-fit: contain;
 }
 
-.item-price-box {
-  margin: 25px 0px;
+.song-option {
   display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.item-price-box>.item-price {
-  font-size: 4vh;
-  font-weight: bold;
-}
-
-.item-price-box>.item-postage {
-  font-size: 16px;
+  justify-content: space-between;
 }
 
 
-.item-red-btn {
+.song-red-btn {
   text-align: center;
-  background-color: #ea352d;
-  font-size: 24px;
+  background-color: #ed92b0;
+  font-size: 20px;
   font-weight: bold;
   color: #FFF;
-  margin: 20px 0px;
-  padding: 2vh 10vw;
+  margin: 20px 20px;
+  padding: 2vh 5vw;
+  border-radius: 40px;
 }
 
-.or-text {
-  font-size: 20px;
-}
-
-.item-destroy {
-  background-color: lightgray;
+.song-destroy {
+  background-color: rgb(245, 62, 62);
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   color: black;
-  margin: 20px 0px;
-  padding: 2vh 10vw;
-}
-
-.item-explain-box {
-  font-size: 18px;
-  margin: 40px 0px;
-  overflow-wrap: anywhere;
+  margin: 20px 20px;
+  padding: 2vh 5vw;
+  border-radius: 40px;
 }
 
 .detail-table {
@@ -83,9 +64,9 @@
   width: 100%;
 }
 
-.detail-item {
+.detail-song {
   width: 20%;
-  background-color: #eee;
+  background-color: rgb(56, 53, 53);
   border: 1px solid #dedede;
   font-size: 14px;
   text-align: center;
@@ -95,7 +76,8 @@
   width: 80%;
   padding: 20px;
   border: 1px solid #dedede;
-  font-size: 14px;
+  font-size: 15px;
+  white-space: pre-line
 }
 
 .option {
@@ -140,6 +122,9 @@
 
 /* /商品の概要 */
 
+.comment
+
+
 .comment-box {
   width: 40vw;
   background-color: #fff;
@@ -164,8 +149,8 @@
 
 .comment-btn {
   line-height: 48px;
-  background-color: #3CCACE;
-  border: 1px solid #3CCACE;
+  background-color: #ce3c6a;
+  border: 1px solid #c11a30;
   color: #fff;
   width: 50%;
   min-width: 150px;
@@ -183,23 +168,10 @@
   margin: 10px 5px 0 0;
 }
 
-.links {
-  display: flex;
-  justify-content: space-between;
-  width: 50vw;
-
-}
-
-.change-item-btn {
-  font-size: 30px;
-  text-decoration: none;
-  color: #3CCACE;
-}
-
-.another-item {
+.another-song {
   display: block;
   margin: 30px 0px 8px;
-  color: #3CCACE;
+  color: #8a657b;
   text-decoration: none;
   font-weight: bold;
   font-size: 23px;
