@@ -19,6 +19,8 @@ class SongsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @song.comments.includes(:user)
   end
 
   def edit

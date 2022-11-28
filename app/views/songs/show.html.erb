@@ -55,17 +55,17 @@
   </div>
 
   <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      </p>
-      <button type="submit" class="comment-btn">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@song, @comment], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2", class:"comment-text" %>
+        <p class="comment-warn">
+        <button type="submit" class="comment-btn">
         <span>コメントする<span>
-      </button>
-    </form>
+        </button>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
   </div>
 
   <a href="#" class="another-song"><%= @song.category %>をもっと見る</a>

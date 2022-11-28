@@ -127,16 +127,17 @@
 
 .comment-box {
   width: 40vw;
-  background-color: #fff;
+  height: 200px;
+  background-color: rgb(185, 76, 127);
   margin: 5vh 0;
   text-align: center;
 }
 
 .comment-text {
-  width: 100%;
-  height: 100px;
+  width: 40vw;
+  height: 30vh;
   padding: 10px;
-  border: solid 2px #dedede;
+  border: solid 2px #d18d8d;
   resize: none;
 }
 
@@ -162,10 +163,6 @@
 .comment-flag {
   display: flex;
   justify-content: center;
-}
-
-.comment-flag-icon {
-  margin: 10px 5px 0 0;
 }
 
 .another-song {
