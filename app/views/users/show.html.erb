@@ -1,0 +1,36 @@
+<%= render "shared/header" %>
+
+<div class="contents row">
+  <p><%= @nickname %>さんの投稿一覧</p>
+    <div class='item-lists'>
+      <table class='list'>
+        <thead>
+          <tr>
+            <th>サムネイル</th>
+            <th>タイトル</th>
+            <th>シンガー</th>
+            <th>カテゴリー</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @songs.each do |song| %>  
+          <tr>
+            <td>
+              <%= link_to image_tag("http://img.youtube.com/vi/#{song.video}/default.jpg"),song_path(song.id) %>
+            </td>
+            <td>
+              <%= link_to song.title, song_path(song.id) %>
+            </td>
+            <td>
+              <%= song.singer %>
+            </td>
+            <td>
+              <%= song.category %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+</div>
+
