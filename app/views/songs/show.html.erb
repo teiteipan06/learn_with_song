@@ -59,7 +59,7 @@
       <h4 class="comment-box-head">＜コメント一覧＞</h4>
       <% @song.comments.each do |comment| %>
         <p>
-          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+          <strong><%= comment.user.nickname %>：</strong>
           <%= comment.text %>
           <% if user_signed_in? && current_user.id == comment.user_id %>
           <%= link_to "削除", song_comment_path(@song.id, comment), method: :delete, class:"comment-destroy" %>

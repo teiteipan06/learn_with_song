@@ -12,6 +12,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true, format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]/, message:'全角（漢字・ひらがな・カタカナ）文字を使用してください' }
   validates :birthday, presence: true
 
-  has_many :songs
-  has_many :comments
+  has_many :songs, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 end
