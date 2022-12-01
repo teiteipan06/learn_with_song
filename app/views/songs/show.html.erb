@@ -19,6 +19,23 @@
         <%= content_tag(:div, iframe, class: 'youtube-container') %>
     </div>
 
+    <% if @song.liked?(current_user) %>
+      <%= link_to song_likes_path(@song.id), method: :delete do %>
+      <span style="color:purple;">いいね❤︎ （キャンセル）</span> 
+      <span class="like-count">いいね数
+      <%= @song.likes.count %>
+      </span>
+      <% end %>
+    <% else %>
+      <%= link_to song_likes_path(@song.id), method: :post do %>
+      <span style="color:red;">いいね❤︎</span> 
+      <span class="like-count">いいね数
+      <%= @song.likes.count %>
+      </span>
+      <% end %>
+    <% end %>
+
+
     <% if user_signed_in? && current_user.id == @song.user_id %>
     <div class="song-option" >
       <%= link_to "編集", edit_song_path, method: :get, class: "song-red-btn" %>
@@ -46,12 +63,6 @@
         </tr>
       </tbody>
     </table>
-    <div class="option">
-      <div class="favorite-btn">
-        <%= image_tag "pan.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
-      </div>
-    </div>
   </div>
 
   <div class="comments">

@@ -15,4 +15,9 @@ class User < ApplicationRecord
   has_many :songs, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+
+
+  def liked_by?(song_id)
+    likes.where(song_id: song_id).exists?
+  end
 end

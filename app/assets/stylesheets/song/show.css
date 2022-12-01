@@ -1,4 +1,4 @@
-/* 商品の概要 */
+/* 投稿した曲の概要 */
 
 .song-show {
   background-color: white;
@@ -80,55 +80,28 @@
   white-space: pre-line
 }
 
-.option {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-}
+/* /投稿した曲の概要 */
 
-.favorite-btn {
-  border-radius: 40px;
-  width: 15vw;
-  min-width: 200px;
-  color: rgb(249, 75, 0);
-  border: 2px solid #ffb340;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 20px;
-}
 
-.favorite-star-icon {
-  margin-right: 5px;
-}
-
-.report-btn {
-  border-radius: 40px;
-  width: 15vw;
-  min-width: 200px;
-
-  padding: 1vh 0;
-  color: black;
-  border: 2px solid #2d2d2d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.report-flag-icon {
-  margin-right: 5px;
+.like-count {
+  color:#da7979;
+  font-size: 20px;
+  padding-left: 200px;
 }
 
 
-/* /商品の概要 */
+
+/* コメント */
 
 .comment-box {
   width: 40vw;
   height: 200px;
   background-color: rgb(242, 206, 224);
-  margin: 5vh 0;
+  margin: 1vh 0;
+  margin-bottom: 5vh;
   padding: 10px;
   border: 2px solid #400404;
+  overflow: scroll;
 }
 
 .comment-box-head {
@@ -176,3 +149,5 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+/* /コメント */

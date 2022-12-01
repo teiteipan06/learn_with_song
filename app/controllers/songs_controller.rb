@@ -19,6 +19,8 @@ class SongsController < ApplicationController
   end
 
   def show
+    
+
     @comment = Comment.new
     @comments = @song.comments.includes(:user)
   end
@@ -38,6 +40,7 @@ class SongsController < ApplicationController
     @song.destroy
     redirect_to root_path
   end
+  
   
 
   private
