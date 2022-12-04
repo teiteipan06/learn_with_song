@@ -83,11 +83,15 @@
 /* /投稿した曲の概要 */
 
 
+/* いいね */
+
 .like-count {
   color:#da7979;
   font-size: 20px;
   padding-left: 200px;
 }
+
+/* /いいね */
 
 
 
@@ -139,15 +143,6 @@
 .comment-flag {
   display: flex;
   justify-content: center;
-}
-
-.another-song {
-  display: block;
-  margin: 30px 0px 8px;
-  color: #8a657b;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 23px;
 }
 
 /* /コメント */
