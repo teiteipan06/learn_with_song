@@ -14,6 +14,13 @@ class Song < ApplicationRecord
     validates :lyrics_japanese
   end
 
+  def self.search(search)
+    if search != ""
+      Song.where('title LIKE(?)', "%#{search}%")
+    else
+      Song.all
+    end
+  end
 
   def liked?(user)
     likes.where(user_id: user.id).exists?
