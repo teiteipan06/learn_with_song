@@ -22,14 +22,14 @@
     <% if @song.liked?(current_user) %>
       <%= link_to song_likes_path(@song.id), method: :delete do %>
       <span style="color:purple;">いいね❤︎ （キャンセル）</span> 
-      <span class="like-count">いいね数
+      <span class="like-count">❤︎ 
       <%= @song.likes.count %>
       </span>
       <% end %>
     <% else %>
       <%= link_to song_likes_path(@song.id), method: :post do %>
       <span style="color:red;">いいね❤︎</span> 
-      <span class="like-count">いいね数
+      <span class="like-count">❤︎ 
       <%= @song.likes.count %>
       </span>
       <% end %>

@@ -34,3 +34,41 @@
     </div>
 </div>
 
+<div class="like-box">
+  <div class="post-head"><%= @nickname %>さんのいいね一覧</div>
+    <div class='item-lists'>
+      <table class='list'>
+        <thead>
+          <tr>
+            <th>サムネイル</th>
+            <th>タイトル</th>
+            <th>シンガー</th>
+            <th>カテゴリー</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        <% @all_songs.each do |song| %>
+        <% @likes.each do |like| %>
+        <% if like.song_id == song.id %>
+          <tr>
+            <td>
+              <%= link_to image_tag("http://img.youtube.com/vi/#{song.video}/default.jpg"),song_path(song.id) %>
+            </td>
+            <td>
+              <%= link_to song.title, song_path(song.id) %>
+            </td>
+            <td>
+              <%= song.singer %>
+            </td>
+            <td>
+              <%= song.category %>
+            </td>
+          </tr>
+          <% end %>
+        <% end %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+</div>
