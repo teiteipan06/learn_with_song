@@ -19,6 +19,7 @@
         <%= content_tag(:div, iframe, class: 'youtube-container') %>
     </div>
 
+    <% if user_signed_in? %>
     <% if @song.liked?(current_user) %>
       <%= link_to song_likes_path(@song.id), method: :delete do %>
       <span style="color:purple;">いいね❤︎ （キャンセル）</span> 
@@ -34,7 +35,7 @@
       </span>
       <% end %>
     <% end %>
-
+    <% end %>
 
     <% if user_signed_in? && current_user.id == @song.user_id %>
     <div class="song-option" >
