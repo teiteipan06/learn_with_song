@@ -11,8 +11,10 @@ https://learn-with-song-287m.onrender.com/
 # テスト用アカンウト
 ・Basic認証ID：admin
 ・Basic認証パスワード：2222
-・メールアドレス：test@com
-・パスワード：test123
+・メールアドレス1：test@com
+・パスワード1：test123
+・メールアドレス2：test2@com
+・パスワード2：test1234
 
 
 # 利用方法
